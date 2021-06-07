@@ -9,11 +9,21 @@ public class Main {
         List<String> toUpperCase = stringsToUpperCase(movieList);
 
         toUpperCase.forEach(System.out::println);
+
+        List<String> sortedList = sortList(toUpperCase);
+
+        sortedList.forEach(System.out::println);
     }
 
     private static List<String> stringsToUpperCase(List<String> movieList) {
         return movieList.stream()
                 .map(String::toUpperCase)
+                .collect(Collectors.toList());
+    }
+
+    private static List<String> sortList(List<String> movieList) {
+        return  movieList.stream()
+                .sorted()
                 .collect(Collectors.toList());
     }
 }
